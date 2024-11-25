@@ -33,6 +33,8 @@ public class OtroSeleniumTest {
         WebElement element = driver.findElement(By.xpath("//a[normalize-space()='Ingresar']"));
         element.click();
 
+        howAboutWait(2000);
+
         System.out.println("hice click para ingresar al login");
         currentUrl = driver.getCurrentUrl();
         System.out.println("Current url: " + currentUrl);

@@ -8,11 +8,5 @@ public class Objetos {
         new Objetos();
     }
 
-    public Objetos(){
-
-        Persona p = new Persona("Ronnie James","Dio", 99);
-
-        System.out.println(p.getNombre());
-    }
 
 }
