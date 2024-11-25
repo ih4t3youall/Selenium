@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static java.lang.System.exit;
+
 public class OtroSeleniumTest {
     public static void main(String [] args) {
         OtroSeleniumTest ost = new OtroSeleniumTest();
@@ -30,8 +32,10 @@ public class OtroSeleniumTest {
         howAboutWait(2000);
 
 
-        WebElement element = driver.findElement(By.xpath("//a[normalize-space()='Ingresar']"));
-        element.click();
+        WebElement botonIngresar = driver.findElement(By.xpath("//a[normalize-space()='Ingresar']"));
+        //WebElement parrafo = driver.findElement(By.xpath("//p[contains(text(),'El Departamento de Justicia de los EEUU quiere jug')]"));
+
+        botonIngresar.click();
 
         howAboutWait(2000);
 
@@ -39,6 +43,16 @@ public class OtroSeleniumTest {
         currentUrl = driver.getCurrentUrl();
         System.out.println("Current url: " + currentUrl);
 
+        WebElement usuario = driver.findElement(By.xpath("//input[@id='thisusername']"));
+
+        WebElement enviar = driver.findElement(By.xpath("//input[@name='Enviar']"));
+
+        if (!enviar.getAccessibleName().equals("Enviar")){
+            System.out.println("Error!");
+            exit(0);
+        }
+
+        System.out.println("pagina cargada");
 
         driver.quit();
     }
